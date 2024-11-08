@@ -1,0 +1,30 @@
+<form method="get" action="/Extrato/Index">
+    <select name="dias">
+        <option value="5">5 Dias</option>
+        <option value="10">10 Dias</option>
+        <option value="15">15 Dias</option>
+        <option value="20">20 Dias</option>
+    </select>
+    <button type="submit">Filtrar</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Data</th>
+            <th>Tipo de Transação</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Data.ToString("dd/MM/yyyy")</td>
+                <td>@item.TipoTransacao</td>
+                <td>@item.Valor</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Extrato/GerarPDF">Compartilhar PDF</a>
